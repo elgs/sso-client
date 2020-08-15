@@ -1,0 +1,11 @@
+{
+  "name": "sso_client",
+  "version": "0.7.2",
+  "components": [
+    "root"
+  ],
+  "imports": [],
+  "resources": [
+    "resources/"
+  ]
+}
