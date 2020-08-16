@@ -8,17 +8,6 @@ customElements.define('sso-client-dashboard',
       constructor() {
          super(ast);
          this.context = context;
-         if (this.urlHashPath.startsWith('#/dashboard')) {
-            context.session();
-         }
-      }
-
-      urlHashChanged() {
-         if (this.urlHashPath.startsWith('#/dashboard')) {
-            context.session();
-         } else {
-            leanweb.eventBus.dispatchEvent('update');
-         }
       }
 
       logout() {

@@ -14,9 +14,21 @@ customElements.define('sso-client-root',
                if (user) {
                   const urlHashParams = this.urlHashParams;
                   delete urlHashParams.access_token;
-                  this.urlHashParams = { ... urlHashParams };
+                  this.urlHashParams = { ...urlHashParams };
                }
             });
+         }
+
+         if (this.urlHashPath.startsWith('#/dashboard')) {
+            context.session();
+         }
+      }
+
+      urlHashChanged() {
+         if (this.urlHashPath.startsWith('#/dashboard')) {
+            context.session();
+         } else {
+            leanweb.eventBus.dispatchEvent('update');
          }
       }
 
