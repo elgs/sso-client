@@ -1,2 +1,2 @@
-<button lw-on:click="goToDashboard()" lw-if="!urlHashPath.startsWith('#/dashboard')">Dashboard</button>
-<sso-client-dashboard lw-if="urlHashPath.startsWith('#/dashboard')"></sso-client-dashboard>
+<button lw-on:click="goToDashboard()" lw-if="!leanweb.urlHashPath.startsWith('#/dashboard')">Dashboard</button>
+<sso-client-dashboard lw-if="leanweb.urlHashPath.startsWith('#/dashboard')"></sso-client-dashboard>

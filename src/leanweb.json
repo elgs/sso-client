@@ -1,6 +1,6 @@
 {
   "name": "sso-client",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "components": [
     "root",
     "dashboard"

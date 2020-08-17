@@ -8,24 +8,24 @@ customElements.define('sso-client-root',
       constructor() {
          super(ast);
          this.context = context;
-         const accessToken = this.urlHashParams.access_token;
+         const accessToken = leanweb.urlHashParams.access_token;
          if (accessToken) {
             this.context.login(accessToken).then(user => {
                if (user) {
-                  const urlHashParams = this.urlHashParams;
+                  const urlHashParams = leanweb.urlHashParams;
                   delete urlHashParams.access_token;
-                  this.urlHashParams = { ...urlHashParams };
+                  leanweb.urlHashParams = { ...urlHashParams };
                }
             });
          }
 
-         if (this.urlHashPath.startsWith('#/dashboard')) {
+         if (leanweb.urlHashPath.startsWith('#/dashboard')) {
             context.session();
          }
       }
 
       urlHashChanged() {
-         if (this.urlHashPath.startsWith('#/dashboard')) {
+         if (leanweb.urlHashPath.startsWith('#/dashboard')) {
             context.session();
          } else {
             leanweb.eventBus.dispatchEvent('update');
@@ -33,7 +33,7 @@ customElements.define('sso-client-root',
       }
 
       goToDashboard() {
-         this.urlHashPath = '#/dashboard';
+         leanweb.urlHashPath = '#/dashboard';
       }
    }
 );
