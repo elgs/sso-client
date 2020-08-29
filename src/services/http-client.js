@@ -14,7 +14,8 @@ class APIClient {
          if (token) {
             headers['access_token'] = token;
          } else {
-            location.href = 'http://localhost:2020/#login?return_url=' + encodeURIComponent(location.href);
+            location.href = ssoServerUrl + '/#/login?return_url=' + encodeURIComponent(location.href);
+            return;
          }
       }
       const response = await fetch(url, {
@@ -33,8 +34,10 @@ class APIClient {
    options(url, data, headers) { return this._fetch('OPTIONS', url, data, headers); }
 }
 
-// const apiUrl = 'https://sso.az.ht:1443';
-const apiUrl = 'http://localhost:1103';
+const ssoServerUrl = 'https://sso.az.ht';
+
+const apiUrl = 'https://sso.az.ht:1443';
+// const apiUrl = 'http://localhost:1103';
 
 export const api = new APIClient(apiUrl, true);
 export const http = new APIClient(apiUrl);
